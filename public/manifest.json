@@ -1,0 +1,25 @@
+{
+  "short_name": "Callify Funds",
+  "name": "Callify Digital Funds",
+  "icons": [
+    {
+      "src": "../src/images/bitcoin-banner.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "../src/images/bitcoin-banner.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../src/images/bitcoin-banner.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "rgb(3, 130, 204)",
+  "background_color": "#ffffff"
+}
