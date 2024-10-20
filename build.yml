@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Change to your required Node version
+
+      - name: Install dependencies
+        run: npm install  # Use `yarn install` if you're using Yarn
+
+      - name: Run build
+        run: npm run build  # Adjust if your build command is different
+
+      - name: Run tests
+        run: npm test  # Optional: Run tests after the build
