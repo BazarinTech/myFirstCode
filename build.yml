@@ -3,26 +3,28 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Change this to your default branch name if different
+      - main  # or the branch you want to deploy from
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Change to your required Node version
+          node-version: '14'  # or your preferred Node.js version
 
       - name: Install dependencies
-        run: npm install  # Use `yarn install` if you're using Yarn
-
-      - name: Run build
-        run: npm run build  # Adjust if your build command is different
-
-      - name: Run tests
-        run: npm test  # Optional: Run tests after the build
+        run: npm install
+      
+      - name: Build the project
+        run: npm run build
+      
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: npx netlify-cli deploy --prod --dir=build
