@@ -194,7 +194,7 @@ useEffect(() => {
               </span>
             </p>
             <p className='w3-large margin-0 w3-padding w3-text-white bold'>
-              Your Rebate has arrived!
+              Your Rebate has arrived sir!
             </p>
           </div>
         </div>
